@@ -11,6 +11,7 @@ class CategoriesTableViewController: UITableViewController {
 
     // MARK: - Properties
     let categoryCell = "categoryCell"
+    let categorySegue = "toCategory"
     let categories = News.getCategories()
     
     override func viewDidLoad() {
@@ -21,15 +22,12 @@ class CategoriesTableViewController: UITableViewController {
 
 extension CategoriesTableViewController {
     // MARK: - Table view data source
-    
-    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return categories.count
     }
     
     // MARK: - Table view delegate
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: categoryCell, for: indexPath)
         var cellConfiguration = cell.defaultContentConfiguration()
@@ -43,5 +41,7 @@ extension CategoriesTableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        
+        performSegue(withIdentifier: categorySegue, sender: nil)
     }
 }

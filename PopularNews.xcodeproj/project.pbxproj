@@ -15,6 +15,8 @@
 		3FF38F0F2769F91400B095C5 /* CategoriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF38F0E2769F91400B095C5 /* CategoriesTableViewController.swift */; };
 		3FF38F162769FD9000B095C5 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF38F152769FD9000B095C5 /* News.swift */; };
 		3FF38F182769FFDE00B095C5 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 3FF38F172769FFDE00B095C5 /* .gitignore */; };
+		3FF38F20276A0FF900B095C5 /* CategoryCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF38F1F276A0FF800B095C5 /* CategoryCollectionViewController.swift */; };
+		3FF38F22276A102B00B095C5 /* CategoryNewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF38F21276A102B00B095C5 /* CategoryNewsCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		3FF38F0E2769F91400B095C5 /* CategoriesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesTableViewController.swift; sourceTree = "<group>"; };
 		3FF38F152769FD9000B095C5 /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
 		3FF38F172769FFDE00B095C5 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		3FF38F1F276A0FF800B095C5 /* CategoryCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewController.swift; sourceTree = "<group>"; };
+		3FF38F21276A102B00B095C5 /* CategoryNewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryNewsCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +78,8 @@
 			isa = PBXGroup;
 			children = (
 				3FF38F0E2769F91400B095C5 /* CategoriesTableViewController.swift */,
+				3FF38F1F276A0FF800B095C5 /* CategoryCollectionViewController.swift */,
+				3FF38F21276A102B00B095C5 /* CategoryNewsCell.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -185,8 +191,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3FF38F22276A102B00B095C5 /* CategoryNewsCell.swift in Sources */,
 				3FF38F0F2769F91400B095C5 /* CategoriesTableViewController.swift in Sources */,
 				3FF38EFB2769F89700B095C5 /* AppDelegate.swift in Sources */,
+				3FF38F20276A0FF900B095C5 /* CategoryCollectionViewController.swift in Sources */,
 				3FF38F162769FD9000B095C5 /* News.swift in Sources */,
 				3FF38EFD2769F89700B095C5 /* SceneDelegate.swift in Sources */,
 			);
