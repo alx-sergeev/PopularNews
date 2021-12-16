@@ -32,8 +32,10 @@ class CategoryCollectionViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: newsCell, for: indexPath) as! CategoryNewsCell
     
-        cell.backgroundColor = .blue
-    
         return cell
     }
+}
+
+extension CategoryCollectionViewController: UICollectionViewDelegateFlowLayout {
+    
 }
