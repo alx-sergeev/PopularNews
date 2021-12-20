@@ -45,8 +45,12 @@ extension CategoryCollectionViewController {
     func getNewsByCat() {
         guard let url = URL(string: News.apiPath + category) else { return }
         
-        let task = URLSession.shared.dataTask(with: url) { [weak self] data, _, _ in
+        let task = URLSession.shared.dataTask(with: url) { [weak self] (data, response, error) in
             guard let self = self else { return }
+            
+            if response == nil || error != nil {
+                self.showServerError()
+            }
             
             guard
                 let data = data,
@@ -62,6 +66,16 @@ extension CategoryCollectionViewController {
         }
         
         task.resume()
+    }
+    
+    // Сообщение об ошибке соединения к серверу
+    func showServerError() {
+        let alert = UIAlertController(title: "Error", message: "The server is unavailable", preferredStyle: .alert)
+        
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alert.addAction(okAction)
+        
+        present(alert, animated: true, completion: nil)
     }
 }
 
