@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3FE6223327708EBC00C84159 /* DetailNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE6223227708EBC00C84159 /* DetailNewsViewController.swift */; };
 		3FF38EFB2769F89700B095C5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF38EFA2769F89700B095C5 /* AppDelegate.swift */; };
 		3FF38EFD2769F89700B095C5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF38EFC2769F89700B095C5 /* SceneDelegate.swift */; };
 		3FF38F022769F89700B095C5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FF38F002769F89700B095C5 /* Main.storyboard */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3FE6223227708EBC00C84159 /* DetailNewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailNewsViewController.swift; sourceTree = "<group>"; };
 		3FF38EF72769F89700B095C5 /* PopularNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PopularNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FF38EFA2769F89700B095C5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3FF38EFC2769F89700B095C5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -80,6 +82,7 @@
 				3FF38F0E2769F91400B095C5 /* CategoriesTableViewController.swift */,
 				3FF38F1F276A0FF800B095C5 /* CategoryCollectionViewController.swift */,
 				3FF38F21276A102B00B095C5 /* CategoryNewsCell.swift */,
+				3FE6223227708EBC00C84159 /* DetailNewsViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -197,6 +200,7 @@
 				3FF38F20276A0FF900B095C5 /* CategoryCollectionViewController.swift in Sources */,
 				3FF38F162769FD9000B095C5 /* News.swift in Sources */,
 				3FF38EFD2769F89700B095C5 /* SceneDelegate.swift in Sources */,
+				3FE6223327708EBC00C84159 /* DetailNewsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
