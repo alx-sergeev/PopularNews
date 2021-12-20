@@ -7,6 +7,20 @@
 
 import Foundation
 
+struct NewsItemData: Decodable {
+    let title: String?
+    let author: String?
+    let content: String?
+    let date: String?
+    let time: String?
+    let imageUrl: String?
+}
+
+struct NewsData: Decodable {
+    let category: String?
+    let data: [NewsItemData]
+}
+
 struct News {
     static let apiPath = "https://inshortsapi.vercel.app/news?category=" // Путь для получения новостей
     

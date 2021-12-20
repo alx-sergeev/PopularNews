@@ -13,9 +13,17 @@ class CategoriesTableViewController: UITableViewController {
     let categoryCell = "categoryCell"
     let categorySegue = "toCategory"
     let categories = News.getCategories()
+    var currentCategory = "all"
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard segue.identifier == categorySegue else { return }
+        guard let categoryVC = segue.destination as? CategoryCollectionViewController else { return }
+        
+        categoryVC.category = currentCategory
     }
     
 }
@@ -41,6 +49,8 @@ extension CategoriesTableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        
+        currentCategory = categories[indexPath.row]
         
         performSegue(withIdentifier: categorySegue, sender: nil)
     }

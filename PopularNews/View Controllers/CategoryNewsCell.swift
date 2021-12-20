@@ -8,5 +8,8 @@
 import UIKit
 
 class CategoryNewsCell: UICollectionViewCell {
-    
+    @IBOutlet weak var imageNews: UIImageView!
+    @IBOutlet weak var titleNews: UILabel!
+    @IBOutlet weak var categoryNews: UILabel!
+    @IBOutlet weak var dateTimeNews: UILabel!
 }
