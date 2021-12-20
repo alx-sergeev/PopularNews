@@ -24,6 +24,8 @@ class CategoryCollectionViewController: UICollectionViewController {
         activityIndicator.hidesWhenStopped = true
         
         getNewsByCat()
+        
+        self.navigationItem.title = category.capitalized
     }
 }
 
