@@ -14,6 +14,7 @@ struct NewsItemData: Decodable {
     let date: String?
     let time: String?
     let imageUrl: String?
+    let category: String?
 }
 
 struct NewsData: Decodable {

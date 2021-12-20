@@ -16,6 +16,8 @@ class CategoryCollectionViewController: UICollectionViewController {
     let newsCell = "newsCell"
     var category = "all"
     var categories = [NewsItemData]()
+    let segueToDetail = "toDetailNews"
+    var selectNews: NewsItemData?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +28,15 @@ class CategoryCollectionViewController: UICollectionViewController {
         getNewsByCat()
         
         self.navigationItem.title = category.capitalized
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard segue.identifier == segueToDetail else { return }
+        guard let navigationVC = segue.destination as? UINavigationController else { return }
+        guard let detailVC = navigationVC.viewControllers.first as? DetailNewsViewController else { return }
+        
+        detailVC.currentNews = selectNews
+        detailVC.currentCategory = category
     }
 }
 
@@ -85,5 +96,11 @@ extension CategoryCollectionViewController {
         }
         
         return cell
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        selectNews = categories[indexPath.item]
+        
+        performSegue(withIdentifier: segueToDetail, sender: nil)
     }
 }
