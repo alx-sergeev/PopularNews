@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class CategoryCollectionViewController: UICollectionViewController {
     
@@ -15,7 +16,7 @@ class CategoryCollectionViewController: UICollectionViewController {
     // MARK: - Properties
     let newsCell = "newsCell"
     var category = "all"
-    var categories = [NewsItemData]()
+    var news = [NewsItemData]()
     let segueToDetail = "toDetailNews"
     var selectNews: NewsItemData?
 
@@ -45,27 +46,21 @@ extension CategoryCollectionViewController {
     func getNewsByCat() {
         guard let url = URL(string: News.apiPath + category) else { return }
         
-        let task = URLSession.shared.dataTask(with: url) { [weak self] (data, response, error) in
-            guard let self = self else { return }
-            
-            if response == nil || error != nil {
-                self.showServerError()
+        AF.request(url, method: .get)
+            .validate()
+            .responseDecodable(of: NewsData.self) { response in
+                switch response.result {
+                case .success(let newsData):
+                    self.news = newsData.data
+                    
+                    DispatchQueue.main.async {
+                        self.collectionView.reloadData()
+                        self.activityIndicator.stopAnimating()
+                    }
+                case .failure(_):
+                    self.showServerError()
+                }
             }
-            
-            guard
-                let data = data,
-                let decodeData = try? JSONDecoder().decode(NewsData.self, from: data)
-                else { return }
-            
-            self.categories = decodeData.data
-            
-            DispatchQueue.main.async {
-                self.collectionView.reloadData()
-                self.activityIndicator.stopAnimating()
-            }
-        }
-        
-        task.resume()
     }
     
     // Сообщение об ошибке соединения к серверу
@@ -89,17 +84,17 @@ extension CategoryCollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return categories.count
+        return news.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: newsCell, for: indexPath) as! CategoryNewsCell
         
-        cell.titleNews.text = categories[indexPath.row].title
+        cell.titleNews.text = news[indexPath.row].title
         cell.categoryNews.text = category
-        cell.dateTimeNews.text = categories[indexPath.row].date
+        cell.dateTimeNews.text = news[indexPath.row].date
         
-        if let imageUrlProp = categories[indexPath.row].imageUrl {
+        if let imageUrlProp = news[indexPath.row].imageUrl {
             DispatchQueue.global().async {
                 if let url = URL(string: imageUrlProp), let imageData = try? Data(contentsOf: url) {
                     DispatchQueue.main.async {
@@ -113,7 +108,7 @@ extension CategoryCollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        selectNews = categories[indexPath.item]
+        selectNews = news[indexPath.item]
         
         performSegue(withIdentifier: segueToDetail, sender: nil)
     }
