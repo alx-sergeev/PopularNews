@@ -15,6 +15,7 @@ class DetailNewsViewController: UIViewController {
     @IBOutlet weak var author: UILabel!
     @IBOutlet weak var titleNews: UILabel!
     @IBOutlet weak var textNews: UILabel!
+    @IBOutlet weak var imageNews: UIImageView!
     
     
     // MARK: - Properties
@@ -30,6 +31,16 @@ class DetailNewsViewController: UIViewController {
             author.text = "Author: \(news.author ?? "Popular News")"
             titleNews.text = news.title
             textNews.text = news.content
+            
+            DispatchQueue.global().async {
+                if let image = news.imageUrl,
+                   let urlImage = URL(string: image),
+                   let dataImage = try? Data(contentsOf: urlImage) {
+                    DispatchQueue.main.async {
+                        self.imageNews.image = UIImage(data: dataImage)
+                    }
+                }
+            }
         }
     }
 
