@@ -14,11 +14,11 @@ class CategoryCollectionViewController: UICollectionViewController {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     // MARK: - Properties
-    let newsCell = "newsCell"
+    private let newsCell = "newsCell"
     var category = "all"
-    var news = [NewsItemData]()
-    let segueToDetail = "toDetailNews"
-    var selectNews: NewsItemData?
+    private var news = [NewsItemData]()
+    private let segueToDetail = "toDetailNews"
+    private var selectNews: NewsItemData?
 
     override func viewDidLoad() {
         super.viewDidLoad()

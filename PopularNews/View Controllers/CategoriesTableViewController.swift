@@ -10,10 +10,10 @@ import UIKit
 class CategoriesTableViewController: UITableViewController {
 
     // MARK: - Properties
-    let categoryCell = "categoryCell"
-    let categorySegue = "toCategory"
-    let categories = News.getCategories()
-    var currentCategory = "all"
+    private let categoryCell = "categoryCell"
+    private let categorySegue = "toCategory"
+    private let categories = News.getCategories()
+    private var currentCategory = "all"
     
     override func viewDidLoad() {
         super.viewDidLoad()
